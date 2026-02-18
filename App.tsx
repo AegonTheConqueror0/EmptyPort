@@ -17,7 +17,10 @@ const App: React.FC = () => {
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
-    document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
+    const workSection = document.getElementById('work');
+    if (workSection) {
+      workSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
@@ -25,7 +28,6 @@ const App: React.FC = () => {
   const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setFormStatus('sending');
-    // Simulate API call
     setTimeout(() => {
       setFormStatus('sent');
       setTimeout(() => setFormStatus('idle'), 3000);
@@ -38,18 +40,18 @@ const App: React.FC = () => {
       
       {/* Hero Section */}
       <section className="min-h-screen flex flex-col justify-center px-6 max-w-6xl mx-auto pt-20">
-        <div className="max-w-3xl">
-          <h2 className="text-neutral-500 font-medium mb-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+        <div className="max-w-3xl animate-fade-in">
+          <h2 className="text-neutral-500 font-medium mb-6">
             Senior Software Engineer & Product Architect
           </h2>
-          <h1 className="text-5xl md:text-8xl font-bold text-white tracking-tighter leading-tight mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+          <h1 className="text-5xl md:text-8xl font-bold text-white tracking-tighter leading-tight mb-8">
             Digital craftsmanship <br />
             <span className="text-neutral-600">at the speed of thought.</span>
           </h1>
-          <p className="text-lg md:text-xl text-neutral-400 mb-10 leading-relaxed max-w-xl animate-in fade-in slide-in-from-bottom-6 duration-1000">
+          <p className="text-lg md:text-xl text-neutral-400 mb-10 leading-relaxed max-w-xl">
             I build robust systems that bridge the gap between complex backend infrastructure and elegant, minimalist user interfaces.
           </p>
-          <div className="flex flex-wrap gap-4 animate-in fade-in slide-in-from-bottom-8 duration-1000">
+          <div className="flex flex-wrap gap-4">
             <a href="#work" className="bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-neutral-200 transition-all hover:-translate-y-1">
               Explore Projects
             </a>
