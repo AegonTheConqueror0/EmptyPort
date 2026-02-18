@@ -1,0 +1,7 @@
+{
+  "name": "Nova IT Portfolio",
+  "description": "A minimalist, dark-themed IT portfolio featuring paginated projects, interactive UI, and a Gemini-powered career assistant.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
